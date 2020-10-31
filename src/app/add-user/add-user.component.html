@@ -1,0 +1,26 @@
+<h2 *ngIf="!editMode" mat-dialog-title>Enter User Details</h2>
+<h2 *ngIf="editMode" mat-dialog-title>Update User Details</h2>
+
+<mat-dialog-content class="mat-typography">
+  <form class="example-form">
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="user.name" name="name">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput [(ngModel)]="user.email" name="email">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Address</mat-label>
+        <input matInput [(ngModel)]="user.address" name="address">
+      </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button *ngIf="!editMode" mat-raised-button color="primary" mat-dialog-close (click)="saveUser()">Save</button>
+  <button *ngIf="editMode" mat-raised-button color="primary" mat-dialog-close (click)="updateUser()">Update</button>
+</mat-dialog-actions>
